@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-//let dojotLibrary = require('@znti/dojot-web');
-let dojotLibrary = require('../../dojot-web');
+let dojotLibrary = require('@znti/dojot-web');
 
 // Sets the base point for dojot.
 let dojotHost = 'http://localhost:8000';

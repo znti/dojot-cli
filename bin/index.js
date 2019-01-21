@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-let dojot = require('@znti/dojot-web');
+//let dojotLibrary = require('@znti/dojot-web');
+let dojotLibrary = require('../../dojot-web');
 
 // Sets the base point for dojot.
 let dojotHost = 'http://localhost:8000';
@@ -22,8 +23,15 @@ if(!command) {
 	return;
 }
 
-dojot.init(dojotHost, credentials).then(dojotClient => {
-	let {Templates, Devices} = dojotClient;
+let run = async () => {
+	let dojot = new dojotLibrary();
+	await dojot.configure(dojotHost);
+	await dojot.initializeWithCredentials(credentials);
+	console.log('Client is initialized');
+	console.log(dojot);
+
+	let {Templates, Devices} = dojot;
+
 	switch(command.toLowerCase()) {
 		case 'hello-world':
 			helloWorld(Templates, Devices);
@@ -34,7 +42,9 @@ dojot.init(dojotHost, credentials).then(dojotClient => {
 		default:
 			console.log(`Unknown command ${command}. Nothing to do.`);
 	}
-});
+}
+
+run();
 
 helloWorld = async (Templates, Devices) => {
 	console.log('Dojot client started correctly. Loading data..');
@@ -44,6 +54,7 @@ helloWorld = async (Templates, Devices) => {
 	console.log(`Got ${devices.length} devices and ${templates.length} templates`);
 	console.log('Everything seems to be working as expected');
 }
+
 powerwash = async (Templates, Devices) => {
 	console.log('Loading data references..');
 	let devices = await Devices.get() || [];

@@ -6,7 +6,10 @@ This module is supposed to be used directly through command line, hence its reco
 
 `npm install -g @znti/dojot-cli`
 
-After installation is complete, you can test the module with 
+After installation is complete, you can use this module's features
+
+## Hello world
+Authenticates with dojot platform and list its templates and devices.
 
 `dojot hello-world`
 

@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/znti/dojot-cli#readme",
   "dependencies": {
-    "@znti/dojot-web": "^0.3.0"
+    "@znti/dojot-web": "^0.3.1"
   }
 }

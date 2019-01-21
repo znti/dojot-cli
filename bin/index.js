@@ -16,6 +16,12 @@ args.splice(0, 2);
 
 let [command, resource, data] = args;
 
+if(!command) {
+	console.log('Usage: dojot command [resource] [data]');
+	console.log('\tFor more details, check: https://github.com/znti/dojot-cli');
+	return;
+}
+
 dojot.init(dojotHost, credentials).then(dojotClient => {
 	let {Templates, Devices} = dojotClient;
 	switch(command.toLowerCase()) {

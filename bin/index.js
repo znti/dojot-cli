@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-let dojotLibrary = require('@znti/dojot-web');
+let dojotLibrary = require('../../dojot-web');
+//let dojotLibrary = require('@znti/dojot-web');
 let configs = require('../configs');
 
 // Sets the base point for dojot.
@@ -40,23 +41,26 @@ let run = async () => {
 
 	switch(command.toLowerCase()) {
 		case 'hello-world':
-			helloWorld(Templates, Devices);
+			await helloWorld(Templates, Devices);
 			break;
 		case 'powerwash':
-			powerwash(Templates, Devices);
+			await powerwash(Templates, Devices);
 			break;
 		default:
 			console.log(`Unknown command ${command}. Nothing to do.`);
 	}
 }
 
-run();
+run().then(() => {
+	console.debug('dojot-cli executed successfully');
+}).catch((error) => {
+	console.error('Failed to run dojot-cli:', error);
+});
 
 helloWorld = async (Templates, Devices) => {
 	console.log('Dojot client started correctly. Loading data..');
 	let devices = await Devices.get() || [];
 	let templates = await Templates.get() || [];
-
 	console.log(`Got ${devices.length} devices and ${templates.length} templates`);
 	console.log('Everything seems to be working as expected');
 }

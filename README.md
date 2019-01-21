@@ -8,9 +8,9 @@ This module is supposed to be used directly through command line, hence its reco
 
 After installation is complete, you can test the module with 
 
-`node index.js hello-world`
+`dojot hello-world`
 
 ## Powerwash
 Removes every template and device on your dojot installation
 
-`node index.js powerwash`
+`dojot powerwash`

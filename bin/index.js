@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 let dojot = require('@znti/dojot-web');
 
 // Sets the base point for dojot.

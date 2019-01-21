@@ -2,7 +2,11 @@
   "name": "dojot-cli",
   "version": "0.2.0",
   "description": "Command line tool to interact with the dojot plataform",
-  "main": "index.js",
+  "preferGlobal": true,
+  "main": "./bin/index.js",
+  "bin": {
+    "dojot": "./bin/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

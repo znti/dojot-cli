@@ -1,14 +1,15 @@
 #!/usr/bin/env node
 
 let dojotLibrary = require('@znti/dojot-web');
+let configs = require('../configs');
 
 // Sets the base point for dojot.
-let dojotHost = 'http://localhost:8000';
+let dojotHost = configs.dojot.host;
 
 // This parameter on init() is actually optional. 
 // If nothing is passed, admin/admin is assumed
 // The only reason its here is to guide users in need of using custom credentials
-let credentials = {username: 'admin', passwd: 'admin'}
+let credentials = configs.dojot.credentials;
 
 //First two arguments passed are node and .js file, so we skip them
 let args = process.argv;

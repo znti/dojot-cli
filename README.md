@@ -22,6 +22,10 @@ Export the environment variables DOJOT_USER and DOJOT_PWD to alter the used cred
 `export DOJOT_USER="myCustomUsername"`
 `export DOJOT_HOST="myCustomPassword"`
 
+### Access with an existing JWT
+In case you already generated a JWT and wants to avoid getting yet another token, simply set the DOJOT_JWT environment variable into your system before executing the CLI tool.
+`export DOJOT_JWT="eyJ0eXAi.."`
+
 ## Hello world
 Authenticates with dojot platform and list its templates and devices.
 

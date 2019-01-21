@@ -11,6 +11,8 @@ let dojotHost = configs.dojot.host;
 // The only reason its here is to guide users in need of using custom credentials
 let credentials = configs.dojot.credentials;
 
+let {authToken} = credentials;
+
 //First two arguments passed are node and .js file, so we skip them
 let args = process.argv;
 args.splice(0, 2);
@@ -26,7 +28,11 @@ if(!command) {
 let run = async () => {
 	let dojot = new dojotLibrary();
 	await dojot.configure(dojotHost);
-	await dojot.initializeWithCredentials(credentials);
+	if(authToken) {
+		await dojot.initializeWithAuthToken(authToken);
+	} else {
+		await dojot.initializeWithCredentials(credentials);
+	}
 	console.log('Client is initialized');
 	console.log(dojot);
 
